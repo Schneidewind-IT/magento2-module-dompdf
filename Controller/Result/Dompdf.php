@@ -2,6 +2,7 @@
 namespace WeProvide\Dompdf\Controller\Result;
 
 use Dompdf\Dompdf as PDF;
+use Dompdf\Options as Options;
 use Magento\Framework\App\ResponseInterface;
 use Magento\Framework\App\Response\HttpInterface as HttpResponseInterface;
 use Magento\Framework\Controller\AbstractResult;
@@ -19,9 +20,12 @@ class Dompdf extends AbstractResult
     /**
      * Dompdf constructor.
      */
-    public function __construct(PDF $domPdf)
+    public function __construct(PDF $domPdf, Options $options)
     {
         $this->pdf = $domPdf;
+        $this->options = $options;
+        $this->options->setIsRemoteEnabled(true);
+        $this->pdf->setOptions($this->options);
     }
 
     /**
