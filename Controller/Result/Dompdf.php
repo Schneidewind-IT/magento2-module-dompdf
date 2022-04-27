@@ -28,6 +28,17 @@ class Dompdf extends AbstractResult
         $this->pdf->setOptions($this->options);
     }
 
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    public function setOptions($options)
+    {
+        $this->options = $options;
+        $this->pdf->setOptions($this->options);
+    }
+
     /**
      * Load html
      *
