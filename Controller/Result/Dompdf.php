@@ -15,6 +15,8 @@ class Dompdf extends AbstractResult
 
     protected $attachment = 'attachment';
 
+    protected Options $options;
+
     protected $output;
 
     /**
